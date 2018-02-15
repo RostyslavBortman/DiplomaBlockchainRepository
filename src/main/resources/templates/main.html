@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:padding-bottom="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Smart Contracts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+</head>
+<body style="text-align: center;">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav" style="
+    padding-left: 1150px;">
+        <li class="nav-item" style="padding-right: 30px">
+            <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/graph">Graph ETH/USD</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+        </li>
+    </ul>
+</nav>
+<div style="padding-top: 20px;"></div>
+<form th:action="@{/send}" th:object="${account}" method="post" style="padding-left: 50px">
+    <div class="row">
+    <div class="column" style="width: 400px;">
+    <div class="form-group">
+        <label for="fromPublic" >Amount of Eth</label>
+        <input type="number" class="form-control" step="any" th:field="*{amount}" id="fromPublic" placeholder="Enter from Eth address"/>
+    </div>
+    <div class="form-group">
+        <label for="to">To</label>
+        <input type="text" class="form-control" th:field="*{to}" id="to" placeholder="Enter to Eth address"/>
+    </div>
+    <div class="form-check">
+        <label class="form-check-label"></label>
+    </div>
+    <label class="form-check-label"></label>
+    <button type="submit" class="btn btn-primary" style="background-color: #343a40!important; border-color: #343a40!important;">Send</button>
+    </div>
+    <div class="column" style="width: 50px">
+    </div>
+    <div class="column" >
+    <div class="form-group" style="width: 900px">
+        <label for="output">Transaction info</label>
+        <textarea class="form-control" th:field="*{transactionInfo}" id="output" rows="8"></textarea>
+    </div>
+    </div>
+    </div>
+</form>
+    <div class="row">
+    <form th:action="@{/balance}" th:object="${balance}" method="POST" style="padding-left: 50px">
+    <div class="form-group" style="width: 175px">
+        <label for="balance">Your balance: </label>
+        <textarea class="form-control" th:field="*{balanceText}" id="balance" rows="1"></textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top: 15px; background-color: #343a40!important; border-color: #343a40!important;">Show my balance</button>
+    </div>
+    </form>
+    <form th:action="@{/increaseBalance}" th:object="${balance}" method="POST" style="padding-left: 50px">
+        <div class="form-group" style="width: 190px">
+            <label for="balance">Amount of Eth: </label>
+            <textarea class="form-control" th:field="*{balanceAdd}" id="balanceAdd" rows="1"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top: 15px; background-color: #343a40!important; border-color: #343a40!important;">Buy Eth</button>
+        </div>
+    </form>
+        <form th:action="@{/deployContract}" th:object="${contract}" method="post" style="padding-left: 35px">
+            <div class="form-group" style="width: 190px">
+                <label for="balance">Price for car:  </label>
+                <textarea class="form-control" th:field="*{price}" id="price" rows="1"></textarea>
+            </div>
+            <div class="form-group" style="width: 100px">
+                <button type="submit" class="btn btn-primary" style=" background-color: #343a40!important; border-color: #343a40!important;">Deploy Smart Contract</button>
+            </div>
+        </form>
+        <form th:action="@{/buyCar}" th:object="${contract}" method="post" style="padding-left: 35px">
+            <div class="form-group" style="width: 675px">
+                <label for="balance">Contract address: </label>
+                <textarea class="form-control" th:field="*{contractAddress}" id="contractAddress" rows="1"></textarea>
+            </div>
+            <div class="form-group" style="width: 100px">
+                <button type="submit" class="btn btn-primary" style=" background-color: #343a40!important; border-color: #343a40!important;margin-left: 200px;">Buy car through Smart Contract</button>
+            </div>
+        </form>
+        <form th:object="${account}" style="padding-left: 35px">
+            <div class="form-group" style="width: 900px">
+                <label for="balance">Your address: </label>
+                <textarea class="form-control" th:field="*{address}" id="address" rows="1"></textarea>
+            </div>
+        </form>
+
+    </div>
+<img src="https://securecdn.pymnts.com/wp-content/uploads/2017/06/Ethereum.jpg" alt="logo" style="width:300px; height: 300px; margin-left: 1100px; margin-bottom: 200px; padding-bottom: 50px;"/>
+</body>
+</html>
