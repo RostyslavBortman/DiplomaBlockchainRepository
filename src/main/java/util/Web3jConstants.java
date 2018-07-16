@@ -13,7 +13,7 @@ public class Web3jConstants {
 	public static final String WALLET_DATABASE_FILE = "/Users/user/IdeaProjects/PoloniexAPIApplication/gs-spring-boot/complete/src/main/java/util/wallet.txt";
 	public static final String CONTRACT_DATABASE_FILE = "/Users/user/IdeaProjects/PoloniexAPIApplication/gs-spring-boot/complete/src/main/java/util/contract.txt";
 	public static final String EMAIL_USERNAME = "bortmanrostyslav@gmail.com";
-	public static final String EMAIL_PASSWORD = "Oypener123";
+	public static final String EMAIL_PASSWORD = "";
 
 
 	// see https://www.reddit.com/r/ethereum/comments/5g8ia6/attention_miners_we_recommend_raising_gas_limit/
